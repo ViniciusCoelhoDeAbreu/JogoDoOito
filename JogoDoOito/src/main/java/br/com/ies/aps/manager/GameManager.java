@@ -74,10 +74,11 @@ public class GameManager {
 	}
 	
 	public boolean verificaFimJogo() {
-		int index = 1;
 		
 		if(jogo.retornaValor(new Casa(Constants.TAMANHO_MATRIZ_JOGO - 1, Constants.TAMANHO_MATRIZ_JOGO - 1)) != 0)
 			return false;
+		
+		int index = 1;
 		
 		for(int l = 0; l < Constants.TAMANHO_MATRIZ_JOGO; l++) {
 			for(int c = 0; c < Constants.TAMANHO_MATRIZ_JOGO; c++) {
