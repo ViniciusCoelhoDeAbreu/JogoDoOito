@@ -1,9 +1,9 @@
 package br.com.ies.aps.manager;
 
-import java.util.LinkedList;
 import java.util.List;
 import java.util.NoSuchElementException;
 import java.util.Random;
+import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 
 import javax.swing.JOptionPane;
@@ -28,11 +28,9 @@ public class GameManager {
 	}
 
 	public void embaralhaCasas() {
-		List<Integer> listaCasas = new LinkedList<Integer>();
-		
-		IntStream
-				.range(0, (int) Math.pow(Constants.TAMANHO_MATRIZ_JOGO, 2))
-				.forEach(valor -> listaCasas.add(valor));
+		List<Integer> listaCasas  = IntStream.range(0, (int) Math.pow(Constants.TAMANHO_MATRIZ_JOGO, 2))
+											 .boxed()
+											 .collect(Collectors.toList());
 
 		for(int x = 0; x < Constants.TAMANHO_MATRIZ_JOGO; x++) {
 			for(int y = 0; y < Constants.TAMANHO_MATRIZ_JOGO; y++) {
