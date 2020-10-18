@@ -16,7 +16,6 @@ public class HibernateUtil {
 	private static SessionFactory sessionFactory;
 
 	public static void carregaSessionFactory() {
-
 		if (sessionFactory == null) {
 			try {
 

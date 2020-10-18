@@ -74,12 +74,15 @@ public class GameManager {
 	}
 	
 	public boolean verificaFimJogo() {
-		int index = 0;
+		int index = 1;
+		
+		if(jogo.retornaValor(new Casa(Constants.TAMANHO_MATRIZ_JOGO - 1, Constants.TAMANHO_MATRIZ_JOGO - 1)) != 0)
+			return false;
 		
 		for(int l = 0; l < Constants.TAMANHO_MATRIZ_JOGO; l++) {
 			for(int c = 0; c < Constants.TAMANHO_MATRIZ_JOGO; c++) {
 				
-				if (jogo.retornaValor(new Casa(l, c))  != index) return false;
+					if (jogo.retornaValor(new Casa(l, c))  != index && jogo.retornaValor(new Casa(l, c)) != 0) return false;
 				
 				index++;
 			}
@@ -88,5 +91,6 @@ public class GameManager {
 		return true;
 		
 	}
+
 
 }
