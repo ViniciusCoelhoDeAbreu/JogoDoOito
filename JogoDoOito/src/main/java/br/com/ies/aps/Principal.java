@@ -16,10 +16,8 @@ public class Principal {
 					FrameJogoOito frame = new FrameJogoOito();
 					GameManager gameManager = new GameManager(frame);
 					
-					gameManager.embaralhaCasas();
-					
-					frame.setVisible(true);
 					frame.addKeyListener(new KeyListener(gameManager));
+					gameManager.embaralhaCasas();
 				} catch (Exception e) {
 					e.printStackTrace();
 				}

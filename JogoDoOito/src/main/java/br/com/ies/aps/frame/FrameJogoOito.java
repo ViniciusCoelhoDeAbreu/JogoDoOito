@@ -23,7 +23,8 @@ public class FrameJogoOito extends JFrame {
 
 	public FrameJogoOito() {
 		this.mapPanel = new HashMap<Integer, JTextPane>();
-
+		
+		setVisible(true);
 		setOpacity(1.0f);
 		setTitle("Jogo Oito");
 		setForeground(Color.BLUE);
