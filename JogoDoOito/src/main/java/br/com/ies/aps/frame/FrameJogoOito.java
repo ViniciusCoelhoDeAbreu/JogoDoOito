@@ -6,24 +6,41 @@ import java.util.HashMap;
 import java.util.Map;
 
 import javax.swing.JFrame;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JTextPane;
 import javax.swing.border.EmptyBorder;
 
+import br.com.ies.aps.listener.GameListener;
+import br.com.ies.aps.manager.GameManager;
 import br.com.ies.aps.model.Casa;
 import br.com.ies.aps.model.Jogo;
+import br.com.ies.aps.type.EventoType;
 import br.com.ies.aps.util.Constants;
 
-public class FrameJogoOito extends JFrame {
+public class FrameJogoOito extends JFrame implements GameListener {
 
 	private static final long serialVersionUID = 1L;
 
 	private JPanel conteudoPainelJogo;
 	private Map<Integer, JTextPane> mapPanel;
 
+	@Override
+	public void onEvento(EventoType tipoEvento, GameManager gameManager) {
+		switch(tipoEvento) {
+		case MOVER:
+			alteraCampos(gameManager.getJogo());
+			break;
+		case VENCER:
+			JOptionPane.showMessageDialog(null, "Você venceu o jogo!");
+			break;
+		}
+
+	}
+
 	public FrameJogoOito() {
 		this.mapPanel = new HashMap<Integer, JTextPane>();
-		
+
 		setVisible(true);
 		setOpacity(1.0f);
 		setTitle("Jogo Oito");

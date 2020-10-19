@@ -6,25 +6,26 @@ import java.util.Random;
 import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 
-import javax.swing.JOptionPane;
-
-import br.com.ies.aps.frame.FrameJogoOito;
 import br.com.ies.aps.model.Casa;
 import br.com.ies.aps.model.Jogo;
 import br.com.ies.aps.type.DirecaoType;
+import br.com.ies.aps.type.EventoType;
 import br.com.ies.aps.util.Constants;
+import br.com.ies.aps.util.ListenerUtil;
 
 public class GameManager {
 
-	private FrameJogoOito frameJogoOito;
 	private GameDaoManager gameDaoManager;
 	
 	private Jogo jogo;
 
-	public GameManager(FrameJogoOito frameJogoOito) {
-		this.frameJogoOito = frameJogoOito;
+	public GameManager() {
 		this.gameDaoManager = new GameDaoManager();
-		jogo = new Jogo();
+		this.jogo = new Jogo();
+	}
+	
+	public Jogo getJogo() {
+		return jogo;
 	}
 
 	public void embaralhaCasas() {
@@ -42,8 +43,8 @@ public class GameManager {
 			}
 		}
 		
-		frameJogoOito.alteraCampos(jogo);
-
+		ListenerUtil.notificaListener(EventoType.MOVER, this);
+		
 	}
 
 	public void move(DirecaoType direcao) {
@@ -59,11 +60,11 @@ public class GameManager {
 
 			Boolean fimJogo = verificaFimJogo();
 			
-			frameJogoOito.alteraCampos(jogo);
 			gameDaoManager.salvaJogada(jogo, fimJogo);
+			ListenerUtil.notificaListener(EventoType.MOVER, this);
 			
 			if(fimJogo) {
-				JOptionPane.showMessageDialog(null, "Você venceu o jogo!");
+				ListenerUtil.notificaListener(EventoType.VENCER, this);
 				embaralhaCasas();
 			}
 			
