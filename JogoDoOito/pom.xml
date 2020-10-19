@@ -38,6 +38,14 @@
 			<version>42.2.18</version>
 		</dependency>
 
+		<dependency>
+			<groupId>junit</groupId>
+			<artifactId>junit</artifactId>
+			<version>4.12</version>
+			<scope>test</scope>
+		</dependency>
+
+
 
 	</dependencies>
 </project>
