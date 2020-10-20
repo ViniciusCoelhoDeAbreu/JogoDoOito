@@ -44,8 +44,8 @@ public class FrameJogoOito extends JFrame implements JogoListener {
 		this.mapPanel = new HashMap<Integer, JTextPane>();
 		this.panelCoordenada = new PanelCoordenada[]{
 								new PanelCoordenada(0, 0, 220, 118),
-								new PanelCoordenada(474, 0, 220, 118),
 								new PanelCoordenada(230, 0, 234, 118),
+								new PanelCoordenada(474, 0, 220, 118),
 								new PanelCoordenada(0, 129, 220, 118),
 								new PanelCoordenada(230, 129, 234, 118),
 								new PanelCoordenada(474, 129, 220, 118),

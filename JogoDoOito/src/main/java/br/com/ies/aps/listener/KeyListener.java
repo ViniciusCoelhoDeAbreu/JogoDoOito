@@ -1,6 +1,7 @@
 package br.com.ies.aps.listener;
 
 import java.awt.event.KeyEvent;
+import java.util.Arrays;
 
 import br.com.ies.aps.manager.JogoManager;
 import br.com.ies.aps.type.DirecaoType;
@@ -25,23 +26,9 @@ public class KeyListener implements java.awt.event.KeyListener {
 
 	@Override
 	public void keyReleased(KeyEvent e) {
-		int teclaApertada = e.getKeyCode();
-
-		switch(teclaApertada) {
-
-		case 37:
-			gameManager.move(DirecaoType.ESQUERDA);
-			break;
-		case 38:
-			gameManager.move(DirecaoType.CIMA);
-			break;
-		case 39:
-			gameManager.move(DirecaoType.DIREITA);
-			break;
-		case 40:
-			gameManager.move(DirecaoType.BAIXO);
-			break;
-		}
+		Arrays.stream(DirecaoType.values())
+											.filter(direcao -> direcao.getNumeroTecla() == e.getKeyCode())
+											.forEach(gameManager::move);
 		
 	}
 
