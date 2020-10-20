@@ -2,7 +2,7 @@ package br.com.ies.aps.type;
 
 public enum DirecaoType {
 
-	DIREITA(0,1, 39), CIMA(-1,0, 38), ESQUERDA(0,-1, 37), BAIXO(1,0, 40);
+	ESQUERDA(0,-1, 37), CIMA(-1,0, 38), DIREITA(0,1, 39),  BAIXO(1,0, 40);
 	
 	private Integer linha;
 	private Integer coluna;
