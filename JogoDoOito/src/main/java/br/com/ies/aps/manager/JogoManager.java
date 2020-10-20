@@ -70,11 +70,11 @@ public class JogoManager {
 			Casa casaZero = jogo.retornaCasa(0);
 
 			jogo.retornaCasa(new Casa(casaZero.getLinha() - (direcao.getLinha() * - 1), casaZero.getColuna() - (direcao.getColuna() * - 1) ))
-			.setLinha(casaZero.getLinha())
-			.setColuna(casaZero.getColuna());
-
+																																			.setLinha(casaZero.getLinha())
+																																			.setColuna(casaZero.getColuna());
+			
 			casaZero.setLinha(casaZero.getLinha() + direcao.getLinha())
-			.setColuna(casaZero.getColuna() + direcao.getColuna());
+					.setColuna(casaZero.getColuna() + direcao.getColuna());
 
 			Boolean fimJogo = verificaFimJogo();
 
