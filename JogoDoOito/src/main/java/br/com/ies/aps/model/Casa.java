@@ -1,6 +1,6 @@
 package br.com.ies.aps.model;
 
-public class Casa {
+public class Casa implements Cloneable{
 
 	private Integer linha;
 	private Integer coluna;
@@ -36,6 +36,15 @@ public class Casa {
 	public boolean equals(Object obj) {
 		return ((Casa)obj).getColuna() == this.getColuna() 
 				&&	((Casa)obj).getLinha() == this.getLinha();
+	}
+	@Override
+	public Casa clone() {
+		try {
+			return (Casa) super.clone();
+		} catch (CloneNotSupportedException e) {
+			e.printStackTrace();
+			return null;
+		}
 	}
 
 }

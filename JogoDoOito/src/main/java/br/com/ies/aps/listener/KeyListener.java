@@ -2,14 +2,14 @@ package br.com.ies.aps.listener;
 
 import java.awt.event.KeyEvent;
 
-import br.com.ies.aps.manager.GameManager;
+import br.com.ies.aps.manager.JogoManager;
 import br.com.ies.aps.type.DirecaoType;
 
 public class KeyListener implements java.awt.event.KeyListener {
 	
-	private GameManager gameManager;
+	private JogoManager gameManager;
 
-	public KeyListener(GameManager gameManager) {
+	public KeyListener(JogoManager gameManager) {
 		this.gameManager = gameManager;
 	}
 

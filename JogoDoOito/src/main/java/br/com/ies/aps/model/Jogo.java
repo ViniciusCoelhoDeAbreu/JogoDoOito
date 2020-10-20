@@ -2,8 +2,9 @@ package br.com.ies.aps.model;
 
 import java.util.HashMap;
 import java.util.Map;
+import java.util.stream.Collectors;
 
-public class Jogo {
+public class Jogo implements Cloneable {
 	
 	private Map<Integer, Casa> mapCasas;
 
@@ -41,6 +42,18 @@ public class Jogo {
 	
 	public Map<Integer, Casa> getMapCasas() {
 		return mapCasas;
+	}
+	
+	@Override
+	public Jogo clone() {
+		try {
+			Jogo jogoClone = (Jogo)super.clone();
+			jogoClone.mapCasas = this.mapCasas.entrySet().stream().collect(Collectors.toMap(Map.Entry::getKey, entry -> entry.getValue().clone()));
+			return jogoClone;
+		} catch (CloneNotSupportedException e) {
+			e.printStackTrace();
+			return null;
+		}
 	}
 	
 }

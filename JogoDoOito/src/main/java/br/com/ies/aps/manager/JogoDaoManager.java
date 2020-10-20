@@ -10,14 +10,14 @@ import br.com.ies.aps.entity.JogadaCasaEntity;
 import br.com.ies.aps.entity.JogadaEntity;
 import br.com.ies.aps.model.Jogo;
 
-public class GameDaoManager {
+public class JogoDaoManager {
 
 	private ExecutorService executors;
 	
 	private JogadaDao jogadaDao;
 	private JogadaCasaDao jogadaCasaDao;
 	
-	public GameDaoManager() {
+	public JogoDaoManager() {
 		this.jogadaDao = new JogadaDao();
 		this.jogadaCasaDao = new JogadaCasaDao();
 		this.executors = Executors.newFixedThreadPool(2);
