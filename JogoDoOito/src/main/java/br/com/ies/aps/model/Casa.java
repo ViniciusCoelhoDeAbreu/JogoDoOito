@@ -1,7 +1,11 @@
 package br.com.ies.aps.model;
 
-public class Casa implements Cloneable{
+import java.io.Serializable;
 
+public class Casa implements Cloneable, Serializable{
+
+	private static final long serialVersionUID = 1L;
+	
 	private Integer linha;
 	private Integer coluna;
 

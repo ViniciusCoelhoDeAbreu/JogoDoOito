@@ -32,6 +32,9 @@ public class JogadaCasaEntity {
 	private Integer coluna;
 	
 
+	public JogadaCasaEntity() {
+	}
+	
 	public JogadaCasaEntity( JogadaEntity jogada, String casa, Integer linha, Integer coluna) {
 		this.jogada = jogada;
 		this.casa = casa;

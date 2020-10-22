@@ -1,15 +1,23 @@
 package br.com.ies.aps.model;
 
+import java.io.Serializable;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.stream.Collectors;
 
-public class Jogo implements Cloneable {
+import org.apache.commons.lang3.SerializationUtils;
+
+public class Jogo implements Cloneable, Serializable {
+	
+	private static final long serialVersionUID = 1L;
 	
 	private Map<Integer, Casa> mapCasas;
 
 	public Jogo() {
 		mapCasas = new HashMap<Integer, Casa>();
+	}
+	public Jogo(byte[] jogoEstado) {
+		this.mapCasas = ((Jogo) SerializationUtils.deserialize(jogoEstado)).getMapCasas();
 	}
 	
 	public void adicionaCasa(Integer valor, Casa casa) {

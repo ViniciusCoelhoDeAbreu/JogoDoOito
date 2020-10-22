@@ -26,12 +26,21 @@ public class JogadaEntity {
 
 	@Column(name = "venceu")
 	private Boolean venceu;
+	
+	@Column(name = "estado")
+	private byte[] estado;
 
-
+	public JogadaEntity() {
+	}
 
 	public JogadaEntity(Date data, Boolean venceu) {
 		this.data = data;
 		this.venceu = venceu;
+	}
+	public JogadaEntity(Date data, Boolean venceu, byte[] estado) {
+		this.data = data;
+		this.venceu = venceu;
+		this.estado = estado;
 	}
 
 	public Integer getJogadaId() {
@@ -60,6 +69,13 @@ public class JogadaEntity {
 	public void setVenceu(Boolean venceu) {
 		this.venceu = venceu;
 	}
+	public byte[] getEstado() {
+		return estado;
+	}
+	public void setEstado(byte[] estado) {
+		this.estado = estado;
+	}
 
+	
 
 }
