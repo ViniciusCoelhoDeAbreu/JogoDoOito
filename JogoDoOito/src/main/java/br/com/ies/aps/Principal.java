@@ -2,11 +2,11 @@ package br.com.ies.aps;
 
 import java.awt.EventQueue;
 
-import br.com.ies.aps.frame.FrameJogoOito;
 import br.com.ies.aps.listener.KeyListener;
 import br.com.ies.aps.manager.JogoManager;
 import br.com.ies.aps.type.TipoOrdenacaoType;
 import br.com.ies.aps.util.ListenerUtil;
+import br.com.ies.aps.view.JogoView;
 
 public class Principal {
 
@@ -15,7 +15,7 @@ public class Principal {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					FrameJogoOito frame = new FrameJogoOito();
+					JogoView frame = new JogoView();
 					JogoManager gameManager = new JogoManager();
 					
 					ListenerUtil.adicionaListener(frame);

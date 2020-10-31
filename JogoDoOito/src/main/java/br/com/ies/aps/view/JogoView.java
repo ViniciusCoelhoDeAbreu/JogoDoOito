@@ -1,4 +1,4 @@
-package br.com.ies.aps.frame;
+package br.com.ies.aps.view;
 
 import java.awt.Color;
 import java.awt.Font;
@@ -19,7 +19,7 @@ import br.com.ies.aps.model.PanelCoordenada;
 import br.com.ies.aps.type.EventoType;
 import br.com.ies.aps.util.Constants;
 
-public class FrameJogoOito extends JFrame implements JogoListener {
+public class JogoView extends JFrame implements JogoListener {
 
 	private static final long serialVersionUID = 1L;
 
@@ -40,7 +40,7 @@ public class FrameJogoOito extends JFrame implements JogoListener {
 
 	}
 
-	public FrameJogoOito() {
+	public JogoView() {
 		this.mapPanel = new HashMap<Integer, JTextPane>();
 		this.panelCoordenada = new PanelCoordenada[]{
 								new PanelCoordenada(0, 0, 220, 118),
