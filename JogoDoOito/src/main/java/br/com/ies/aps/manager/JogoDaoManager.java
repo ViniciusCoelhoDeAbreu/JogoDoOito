@@ -4,6 +4,8 @@ import java.util.Date;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
+import org.apache.commons.lang3.SerializationUtils;
+
 import br.com.ies.aps.dao.JogadaCasaDao;
 import br.com.ies.aps.dao.JogadaDao;
 import br.com.ies.aps.entity.JogadaCasaEntity;
@@ -25,7 +27,7 @@ public class JogoDaoManager {
 	
 	public void salvaJogada(Jogo jogo, Boolean venceu) {
 		executors.execute(() -> {
-			JogadaEntity jogada = jogadaDao.salvaJogada(new JogadaEntity(new Date(), venceu));
+			JogadaEntity jogada = jogadaDao.salvaJogada(new JogadaEntity(new Date(), venceu, SerializationUtils.serialize(jogo.clone())));
 			jogo.getMapCasas().entrySet().forEach(entrySet -> salvaJogadaCasa(jogada, entrySet.getKey().toString(), entrySet.getValue().getLinha(), entrySet.getValue().getColuna()));
 		});
 	}
